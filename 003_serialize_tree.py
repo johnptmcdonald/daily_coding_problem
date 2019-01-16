@@ -50,15 +50,30 @@ def deserialize(data):
 
 
 Y = Node('Y')
-
 X = Node('X', Y)
 C = Node('C')
 D = Node('D')
 B = Node('B', C, D)
 A = Node('A', X, B)
 
-ser = serialize(A)
+import unittest
 
-ser = deserialize(ser)
+class Test_serialize_and_deserialize_tree(unittest.TestCase):
 
-print(serialize(ser))
+	def setUp(self):
+
+		Y = Node('Y')
+		X = Node('X', Y)
+		C = Node('C')
+		D = Node('D')
+		B = Node('B', C, D)
+		self.A = Node('A', X, B)
+
+	def test_serialize(self):
+		self.assertEqual(serialize(self.A), "A X Y None None None B C None None D None None")
+
+	def test_deserialize(self):
+		self.assertEqual(serialize(deserialize("A X Y None None None B C None None D None None")), "A X Y None None None B C None None D None None")
+
+
+unittest.main()
