@@ -18,27 +18,47 @@ class Node:
 # assert deserialize(serialize(node)).left.left.val == 'left.left'
 
 def serialize(root):
+	# just a depth first traversal
 	if root is None:
-		return '#'
+		return 'None'
 	return '{} {} {}'.format(root.val, serialize(root.left), serialize(root.right))
+
+
+def deserialize(data):
+	def helper():
+		val = next(vals)
+		if val == 'None':
+			return None
+
+		node = Node(val)
+		node.left = helper()
+		node.right = helper()
+		return node
+
+	vals = iter(data.split())
+		
+	return helper()
+
 
 #		   A
 #		  / \
 #		 /   \
 #	    /     \
 #	   X	   B
-#     / \     /  \
-#    Y   Z   C   D
+#     /       /  \
+#    Y       C   D
 
 
 Y = Node('Y')
-Z = Node('Z')
-X = Node('X', Y, Z)
+
+X = Node('X', Y)
 C = Node('C')
 D = Node('D')
 B = Node('B', C, D)
 A = Node('A', X, B)
 
-print(A.left.val)
+ser = serialize(A)
 
+ser = deserialize(ser)
 
+print(serialize(ser))
