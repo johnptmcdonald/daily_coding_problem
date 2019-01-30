@@ -1,3 +1,4 @@
+# given a list of positive integers, what is the largest sum of non-adjacent items?
 
 # 1 - inefficient recursive solution (maybe 2^n time)
 def maxSubsetSumNoAdjacent(lst, idx=0):
