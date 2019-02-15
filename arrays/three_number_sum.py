@@ -23,3 +23,6 @@ def three_number_sum(array, targetSum):
 	return triplets
 
 print(three_number_sum([12,3,1,2,-6,5,-8,6],0))
+
+
+# The key here is to sort the array and traverse it once. At each number, place a left pointer immediately to the right of the current number, and a right point on the final number in the array. 
