@@ -36,7 +36,6 @@ def max_sum_increasing_sebsequence(lst):
 
 		dp2[i] = chosen_j
 
-
 	while best_i is not None:
 		res.append(lst[best_i])
 		best_i = dp2[best_i]
