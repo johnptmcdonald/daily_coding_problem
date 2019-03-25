@@ -10,8 +10,6 @@ def longest_substring(str, k):
 		str[p2] = True
 	}
 
-	# delete distincts['a']
-
 	length = 0
 
 	while p2 < len(str) - 1:
