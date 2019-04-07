@@ -26,6 +26,7 @@ def find_anagram_indices(word, s):
 	if not freq:
 		result.append(0)
 
+	
 	for i in range(len(word), len(s)):
 
 		start_char, end_char = s[i - len(word)], s[i]
