@@ -6,3 +6,8 @@ input_data = ['code', 'edoc', 'da', 'd']
 
 # output = [(0,1), (1,0), (2,3)]
 
+def generate_palindrome_pairs(arr):
+	pass
+
+
+	
