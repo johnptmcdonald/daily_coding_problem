@@ -1,34 +1,57 @@
 
-def three_number_sum(arr, targetSum):
-		res = []
+class LinkedList:
+	def __init__(self, head=None):
+		self.head = head
 
-		# [12,3,1,2,-6,5,-8,6]
-		arr.sort()
+	def prepend(self, value):
+		# head						# head
+		#  \						#  \
+		#   \						#   \
+		#  [23]->[12]->null			#   [4]->[23]->[12]->null
 
-		# [-8,-6,1,2,3,5,6,12]
+		self.head = Node(value=value, next=self.head)
 
-		# iterate through, place left pointer on num to immediate right,
-		# and right pointer at the end.
-
-		for i, num in enumerate(arr):
-			if i == len(arr)-2:
-				break
+	def append(self, value):
+		# head						# head
+		#  \						#  \
+		#   \						#   \
+		#  [23]->[12]->null			#  [23]->[12]->[4]->null	
 			
-			target = targetSum - num
-			lp = i+1
-			rp = len(arr)-1
+		node = self.head
+		while node.next:
+			node = node.next
 
-			while lp != rp:
-				if arr[lp] + arr[rp] == target:
-					res.append(sorted([num, arr[lp], arr[rp]]))
-					lp += 1
-					rp += 1
-				elif arr[lp] + arr[rp] > target:
-					rp -= 1
-				elif arr[lp] + arr[rp] < target:
-					lp += 1
+		node.next = Node(value=value)
 
-		return res
+	def __repr__(self):
+		node = self.head
+		nodes = []
+		while node:
+			nodes.append(repr(node))
+			node = node.next
+		return '[' + ', '.join(nodes) + ']'
 
-x = three_number_sum([12,3,1,2,-6,5,-8,6], 0)
-print(x)
+
+class Node:
+	def __init__(self, value=None, next=None):
+		self.value = value
+		self.next = next
+
+	def __repr__(self):
+		return repr(self.value)
+
+
+firstNode = Node(23)
+ll = LinkedList(firstNode)
+ll.append(Node(44))
+ll.append(Node(54))
+print(repr(ll))
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,7 @@ def number_of_ways_to_make_change(n, denominations):
 
 
 
-number_of_ways_to_make_change(6, [1,5]) # => 2
+number_of_ways_to_make_change(10, [1,5]) # => 3
 
 
 
@@ -47,5 +47,8 @@ number_of_ways_to_make_change(6, [1,5]) # => 2
 	# dp is an array 
 
 # Step 7: Determine Time complexity.
+
+
+
 
 
