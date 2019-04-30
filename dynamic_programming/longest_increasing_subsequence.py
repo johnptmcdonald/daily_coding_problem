@@ -33,31 +33,5 @@ def longest_increasing_subsequence(arr):
 
 
 
-def lis(arr):
-	dp = [0] * len(arr)
-	
-	for i, num in enumerate(arr):
-		dp[i] = max(num, num + dp[i-1])
-
-	print(dp)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-lis([5,15,-30,10,-5,40,10])
-# longest_increasing_subsequence([3, 1, 2, 5, 7, 12, 4])
+longest_increasing_subsequence([3, 1, 2, 5, 7, 12, 4])
 
