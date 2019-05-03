@@ -15,6 +15,7 @@ def number_of_ways_to_make_change(n, denominations):
 				dp[amount] += dp[amount-denom]
 		print(dp)
 
+	print(dp)
 	print(dp[n])
 	return dp[n]
 
@@ -24,8 +25,7 @@ def number_of_ways_to_make_change(n, denominations):
 
 
 
-number_of_ways_to_make_change(10, [1,5]) # => 3
-
+number_of_ways_to_make_change(9, [1, 5]) 
 
 
 
